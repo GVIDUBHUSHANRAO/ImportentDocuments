@@ -1,0 +1,7 @@
+*User: viduterraform
+*Access key ID: AKIA3MPKOOSR77RAKU6H
+*Secret access key: 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
+
+export AWS_REGION="ap-south-1"
+export AWS_ACCESS_KEY_ID="AKIA3MPKOOSR77RAKU6H" 
+export AWS_SECRET_ACCESS_KEY="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"

@@ -1,0 +1,3 @@
+variable "lbname" {
+    type = string
+}
