@@ -1,0 +1,28 @@
+1.What is AMI
+Ans. Its a templete that provides the informaion(os application server) required to launch a instance which is a copy of AMI as a virtual server in the cloud.
+
+2.What are the different types of instances?
+Ans.
+1. General purpose
+2. Compute optimize
+3. Memory optimize
+4. Storage optimize
+
+3.What is security group?
+Ans. A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. If you don't specify a security group, Amazon EC2 uses the default security group.
+
+4.What are the instance states?
+Ans.
+1.start
+2.stop
+3.terminate
+
+5.How to change the instance size?
+Ans.
+step-1: stop instance
+step-2: select instance
+step-3: click on 'Actions'
+step-4: Goto 'Instance Settings' and click on 'change instance type'
+
+6.What is spot instance?
+Ans. A Spot Instance is an instance that uses spare EC2 capacity that is available for less than the On-Demand price. Because Spot Instances enable you to request unused EC2 instances at steep discounts, you can lower your Amazon EC2 costs significantly. The hourly price for a Spot Instance is called a Spot price.

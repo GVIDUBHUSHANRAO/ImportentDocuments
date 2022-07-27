@@ -1,0 +1,104 @@
+1) how to check ram and cpu in Linux? 
+Ans. 1. to check ram, we should use command : free -m
+     2. to check cpu, we should use command : lscpu
+
+2) what is process?
+Ans. A program/application in running state is called process.
+
+3) how to check any application status? 
+Ans. By using command : systemctl status application_name 
+
+4) how to check one (any)application is installed or not? 
+Ans. By using command : rpm -qa (or) rpm -qa | grep application_name
+
+5) how to check which Linux distribution u r using (such as redhat, centos) ? 
+Ans. By using command : cat /etc/os-release
+
+6) what is swap ? 
+Ans. 1. Swap is a space on a disk that is used when the amount of physical RAM memory is full. When a                   Linux system runs out of RAM, inactive pages are moved from the RAM to the swap space.
+
+     2. Swap space can take the form of either a dedicated swap partition or a swap file. In most cases, when           running Linux on a virtual machine, a swap partition is not present, so the only option is to create a          swap file.
+
+7) what is service?
+Ans. A sevice is an application/backend program that we should run to use that application.
+
+8) how to check one file is available or not? 
+Ans. First we should go to that particular directory in which we thick the file is present and then use
+     command : ls (or) ls -l
+     
+9) how can i check how many users i have in my linux box? and how many users logged in currently?
+Ans. 1. to check how many users are there, we should use command : cat /etc/passwd
+     2. to check how many users are currently logged in, we should use command : w (or) who 
+
+10) how to check and change system time and time zone?
+Ans. 1. date -s "19 APR 2012 11:14:00"(to change date and time)
+     2. date +%T -s "11:14:00"(to change time)
+     3. date +%Y%m%d -s "20120418"(to change date)
+     4. sudo timedatectl set-timezone America/New_York(to change time zone)
+     5. date (or) timedatectl(to check date,time and timezone)
+
+11) what is host name and how to change?
+Ans. A hostname is a label that is assigned to a device connected to a computer network. There are two ways to      change a hostname, 
+     1. temporary - hostname name
+     2. permanently - hostnamectl set-hostname name
+
+12) what is ip address ? how to check system ip address?
+Ans. An Internet Protocol address is a numerical label such as 192.0.2.1 that is connected to a computer             network that uses the Internet Protocol for communication.
+     1. to check private ip address - ifconfig
+     2. to check public ip address - curl ifconfig.me
+
+13) what is system log file and its path ?
+Ans. Log files are a set of records that Linux maintains for the administrators to keep track of important           events. They contain messages about the server, including the kernel, services and applications running on      it. The path of log file is - /var/log directory
+14) how to lock/inactive a user? 
+Ans. step-1 : vi /etc/shadow (in root)
+     step-2 : edit the user by adding '*'.(Ex: Tom:*$1$narMEFm6$fhA1puOU422HiSL5aggLI/:11193:0:99999:7:-1:-              1:134539228)
+     (or) you can just lock the user using passwd command.
+
+15) difference between root and normal user? 
+Ans. Root is like an administrator for linux server which has every access to linux server, whereas normal user      has limited accesses that are given by root user/admin.
+
+16) where are service files are located?
+Ans. To find the location/path of any service/applicaion, we can use command - whereis application_name 
+
+17) what is kernel?
+Ans. Kernel is a heart of the OS. Kernel act as an interface between the OS and Hardware, it interprets human        readable commands which we give into machine level language and vice versa.
+
+
+18) what is ~ ? 
+Ans. User who is logged in, is in his own directory.
+
+19) what is shell prompt? 
+Ans. A Shell provides you with an interface to the linux system. It gathers input from you and executes              programs based on that input. When a program finishes executing, it displays that program's output.
+
+     Shell is an environment in which we can run our commands, programs, and shell scripts. There are different      flavors of a shell, just as there are different flavors of operating systems. Each flavor of shell has its      own set of recognized commands and functions.
+
+     The prompt, $, which is called the command prompt, is issued by the shell. While the prompt is displayed,       you can type a command.
+
+     Shell reads your input after you press Enter.
+
+20) what is # in shell prompt? 
+Ans. hash(#) means you are the system administrator(root).
+
+21) what is $ in shell prompt?
+Ans. Dollar sign ($) means you are a normal user.
+
+22) how to check how many harddisks I have? 
+Ans. We can check using the command - lsblk
+
+23) what is filesystem(drive in windows) ? How to check how many I have? 
+Ans. We have directories to store files and child directories.
+     1. To check which directoty we are presently in, we can use command - pwd  
+     2. To check what are present in directory we are presently in, we can use command - ls (or) ls -l
+
+24) how to add a user into a group? Ex: amar user into sam group
+Ans. By using the command 'usermod'.
+     Example: usermod -G sam amar
+
+25) how to find out a file or directory full path ( which location it is there)
+Ans. We can find a path of file/directory using command - readlink -f file_or_dir_name 
+
+26) How to kill a process? 
+Ans. We can kill a process using a command - kill -9 pid
+
+27) how to check since when my system is running?
+Ans. we can check the time and date, since when my system is running using command - uptime (or) date

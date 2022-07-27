@@ -1,0 +1,54 @@
+1. How to do SSH with github repository
+Ans.
+
+****step 1: Generate SSH Key on Local System
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+$ ls -al ~/.ssh
+****step 2: Add SSH Key to SSH Agent
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+****step 3: Add the SSH Key to your GitHub Account
+**step 3.1: copy SSH key
+$ cat ~/.ssh/id_rsa.pub
+then copy the content of file id_rsa.pub
+**step 3.2: Open the GitHub website and log in to your account. Go to the settings page from the menu in top right corner.
+**step 3.3: Select “SSH and GPG keys” from the sidebar and click on “New SSH key” option.
+**step 3.4: Add relevant title in the “Title” field and paste the SSH key in the “Key field“.
+**step 3.5: Now, click on “Add SSH key“.
+****step 4: Test the SSH Connection
+$ ssh -T git@github.com
+
+2. Find out amar user commits
+Ans. 
+$ git log --author="amar" and $ git log --author="\(Jordan\)\|\(Will\)" (for jordan or will)
+
+3. Find out feb 25th commits(Particular date)
+Ans. 
+$ git log --after="2018-06-30" --before="2018-07-03" --oneline
+$ git log --since='Apr 1 2021' --until='Apr 4 2021'
+$ git log --since='2 weeks ago'
+
+4. Find out how many commits happened in f2 file
+Ans.
+$ git log -- <file>
+$ git log -p -- <file>
+$ git log --follow -p -- <file>
+
+5. In particular commit how many changes i did
+Ans.
+$ git show commit_id
+
+6. How many commits I did in between 10th to 15th /last 2 days/feb 2nd week
+7. How to change the commit message
+Ans.
+$ git commit --amend
+
+8. How to make two commits in one commit
+9. How to revert changes from staging area
+Ans.
+10. How to revert the changes after git commit command
+11. How many times we did merge for a particular branch
+12. Difference between git pull and git fetch
+13. How to revert git merge
+14. How to delete a branch and how to recover a deleted branch
+15. I don't have central repository, I have only one folder in Linux how to create a folder as a repository

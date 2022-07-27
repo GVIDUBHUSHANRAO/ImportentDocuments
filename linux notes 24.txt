@@ -1,0 +1,200 @@
+18/Jan/2022
+Distribution in Linux
+Windows - 11,10,8,7,xp,vista,2000
+Linux
+Unix(Open source)
+Amazon linux
+redhat
+Centos
+Ubuntu
+Fedora
+Debian
+Solaris
+Suse
+IBM six
+Hp
+Oracle
+Types of users in Linux
+root -Admin user for entire server
+normal user - All other users including ec2-user are normal users
+Directory Structure in linux
+/
+home   root etc boot bin sbin tmp var lib usr mnt  opt
+test test2
+test1 test3
+
+
+cd /root/test2 (how to change to test2 folder ) pwd : /root/test2
+
+cd /home/test/test1 (absolute path)
+
+cd             pwd: /
+cd home        pwd : /home
+cd test        pwd : /home/test
+cd test1       pwd : /home/test/test1
+
+cd home/test/test1 (relative path)
+
+
+
+/ - base directory (C drive for windows)
+home - every user has a dedicated directory with the same name as user
+inside home directory
+root - Dedicated directory of root user
+etc - Application settings and system settings are available in this folder
+boot - Consist of the kernel
+bin - program files of all the commands are stored here
+sbin - system binaries
+tmp - temporary memory used for system purpose (auto deletion enable
+for 30 days)
+
+
+19/1/2022
+
+ls - list the contents of the directory
+pwd - present working directory
+whoami - which user you currently logged in as
+cd - change the directory
+sudo -i - switch to root user
+
+
+Creating directory
+
+mkdir directory (create a dir)
+rmdir directory (delet the directory)
+rm -rf dir (r- recursively , f- forcedly)
+
+Creating files 
+
+1. touch file (only creates the file)
+
+2. cat file (only read the file content)
+   cat > file (write the data , also to over write if any exsisting data)
+   cat >> file (append the data to exsisting data)
+
+3. vi editor 
+   three modes of operation
+
+   a. escape mode (default mode)
+   b. insert mode (o.O.i.I.a.A)
+   c. command mode (save or discard the changes)
+   
+  Escape mode :
+   
+  G - go to the last line
+  gg - go to the fisrt line
+     5gg - go to the 5th line
+  yy - copy the current line
+     5yy - copy 5 lines from the current 
+  p - paste the copied content bel;ow the current line
+     5p - paste the copied content for five times
+  dd - delete ?the current line
+     5dd- delet 5 lines from the currnet line
+  u - undo the previous change
+  ctrl + r - redo
+
+  Command mode:
+ 
+  :wq!  (:- command mode , w- save , q- quit , !- forced)
+  :q!
+  :wq
+  :q
+  :se nu (list the line numbers)
+  : se nonu
+
+
+
+
+20/Jan/2022
+
+
+User management
+
+useradd user       -(To create a new user)
+               UID  
+               user name
+               gid
+               group name
+               the home directory 
+
+passwd user          -(To create password for the user)
+
+userdel user           -(To delete user)
+
+how to provide login access to the user
+    - vi /etc/ssh/sshd_config
+           edit ( PasswordAuthentication no to yes)
+    - systemctl restart shhd
+ 
+
+how to provide sudo access to user
+     - vi /etc/sudoers
+            add ( user ALL=(ALL)     ALL ) this to the above file
+
+
+Task:
+1.  How to provide password less sudo access to user.
+2.  how to provide sudo access for specific commands to a user  Example : user should have access to creating user but not delete any existing user
+                         useradd should work but userdel should not work
+
+
+
+21/jan/2022
+
+Ownerships and Permisions
+
+drwxr-xr-x 2 root root  6 Jan 21 02:23 d1
+-rw-r--r-- 1 root root  0 Jan 21 02:23 f1
+
+                              d                              rwx                                                            r-x                                       r-x
+                         item kind            user permission (owner)         group[ permissions (owner)          all other users in the server
+
+read (r)  - 4                                          7                                                             5                                               5     
+write (w) - 2
+execute (x) - 1 
+
+
+24 jan 2022
+
+managing applications
+
+windows - 
+       -   .exe files
+       -   .zip files
+       -    cd/hd/pd/ (soruce file)
+
+linux -
+       -   .rpm files (redhat package managers)
+                website - downloand rpm package - install manually - some dependecies - search for the dep in wesites - install -
+                the developer of application,. write some scripts or methods to install
+
+       -   .tar/.jar 
+                 there are certain folders to be updated along with new apllication (lib , etc , usr , bin) manually
+    
+       -    binaries method
+       -    yum : package manager   (yellowdog updater modified)
+
+Service : 
+
+systemctl status service.name
+systemctl start service.name
+systemctl stop service.name
+systemctl restart service.name
+systemctl enable service.name
+
+task : 
+1. install jenkins on linux   ( official website )
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+

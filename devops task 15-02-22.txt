@@ -1,0 +1,15 @@
+1.How to make file system mount permanently?
+Ans.
+*ext4: The ext4 or fourth extended filesystem is a widely-used journaling file system for Linux.
+**step-1: you need to properly format the new volume(partition) with the ext4 file system type using the mkfs.ext4 or mke4fs command as follows: # mkfs.ext4 /dev/diskname(Ex: # mkfs.ext4 /dev/xvdg)
+**step-2: Make directory using command- # mkdir /dir_name(Ex: # mkdir /dsk2)
+**step-3: Mount using command- # mount /dev/diskname /dir_name(Ex: # mount /dev/xvdg /dsk2)
+**step-4: Find UUID(Universally Unique Identifier) of new volume using command- # blkid /dev/diskname(Ex:  # blkid /dev/xvdg)
+**step-5: open 'fstab' file using command- # vi /etc/fstab
+**step-6: Add 'UUID=paste_uuid   /dir_name    ext4   defaults  0   0'(Ex: UUID=d55ae35a-df8e-4243-9f3f-1c7711f6a432     /dsk3       ext4   defaults  0  0) at the end of file 
+
+2.How to increase RAM and CPU in ec2 inastance?
+3.How to increase the root volume?(it should show in df -h command, increase it to 20GB)
+4.How to find out which folder is consuming more storage in our file system?
+5.If we are not able to connect to ec2 instance, What could be the reason?
+6.ec2 instance is keep on restarting, What could be the reason?

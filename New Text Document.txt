@@ -1,0 +1,60 @@
+1. if available memory is more than 1GB(1024MB) then echo something
+Ans.
+#!/bin/bash
+
+mem=`free -m|grep Mem|awk '{print $7}'`
+if [ $mem -gt 1024 ]
+then
+        echo available memory is greater than 1GB
+else
+        echo available memory is less than 1GB
+fi
+
+2. Find out the available memory and if it is more than 40% then echo something
+Ans.
+#!/bin/bash
+
+mem=`free -m|grep Mem|awk '{print $7}'`
+echo Available memory is $mem
+y=`expr $mem \* 100 / 1024`
+if [ $y -gt 40 ]
+then
+        echo available memory is greater than 40 percent
+else
+        echo available memory is less than 40 percent
+fi
+
+3. In df -h / ,find out the available storage, convert into MB and if it is more than 1GB then echo something
+Ans.
+#!/bin/bash
+
+mem=`df -h /|grep dev|awk '{print $4}'|sed 's/[M,G]//g'`
+c=`df -h /|grep dev|awk '{print $4}'|sed 's/[0-9,.]//g'`
+#Conversion of GB/MB into MB
+if [ $c = G ]
+then
+        mb=`echo $mem \* 1024|bc|awk -F '.' '{print $1}'`
+else
+        mb=$mem
+fi
+
+echo -e "Available memory is $mb \bMB"
+
+if [ $mb -gt 1024 ]
+then
+        echo Available memory is greater than 1GB
+else
+        echo Available memory is less than 1GB
+fi
+
+4. Same as before but in %, find out the available storage,convert it and if it is more than 1GB then echo something
+5. I have shell script, only root should be able to run it(use whoami command)
+6. /app , /app1 , /app2 
+6.1) write a shell script to take folder name as positional paramater
+6.2) if i give any other folder except /app , /app1 , /app2  it should say, please provide correct folder name.
+6.3) find out the latest files and remove remaining all files?
+6.4) i may have sub folders also it should dlete all old files not directories?
+7. 
+/app
+
+f1 f2 f3 f4 f5 folder1/f6

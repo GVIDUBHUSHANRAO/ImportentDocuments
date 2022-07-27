@@ -1,0 +1,86 @@
+1. What is Terraform?
+Ans. Terraform is an open-source infrastructure as code software tool created by HashiCorp. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
+
+2. Define IAC?
+Ans. Infrastructure as code (IaC) tools allow you to manage infrastructure with configuration files rather than through a graphical user interface. IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
+
+3. Why is terraform used for devops?
+Ans. HashiCorp Terraform is an open source infrastructure as code (IaC) software tool that allows DevOps engineers to programmatically provision the physical resources an application requires to run.
+
+4. What is terraform init?
+Ans. terraform init initializes your working directory, it configures the backend, installs all providers and modules referred to, in the Terraform project, and creates a lock file if it doesn't already exist.
+
+5. How does terraform works?
+Ans. 
+
+6. How to check terraform version installed?
+Ans. By using command : terraform --version or terraform -v or terraform -version
+
+7. What is Provider in terraform? List some terraform providers?
+Ans. Providers are the plugins that Terraform uses to manage those resources. Every supported service or infrastructure platform has a provider that defines which resources are available and performs API calls to manage those resources.
+Some providers are AWS, MICROSOFT AZURE, AND GCP.
+
+8. Describe a few terraform CLI commands and their Functions?
+Ans. 
+
+9. What does HCL stands for?
+Ans. The syntax of Terraform configurations is called HashiCorp Configuration Language (HCL). It is meant to strike a balance between human readable and editable as well as being machine-friendly. For machine-friendliness, Terraform can also read JSON configurations.
+
+10. What are modules in terraform?
+Ans. A module is a container for multiple resources that are used together. Modules can be used to create lightweight abstractions, so that you can describe your infrastructure in terms of its architecture, rather than directly in terms of physical objects.
+
+The .tf files in your working directory when you run terraform plan or terraform apply together form the root module. That module may call other modules and connect them together by passing output values from one to input values of another.
+
+11. What is Remote backend in terraform?
+Ans. Terraform stores this state in a local file by default, but you can also use a Terraform remote backend to store state remotely.
+
+12. What is terraform in aws?
+Ans. Terraform by HashiCorp, an AWS Partner Network (APN) Advanced Technology Partner and member of the AWS DevOps Competency, is an “infrastructure as code” tool similar to AWS CloudFormation that allows you to create, update, and version your Amazon Web Services (AWS) infrastructure.
+
+13.What is use fmt command in terraform?
+Ans. The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
+Usage: terraform fmt [options] [DIR]
+
+14. Can I add policies to the open-source  or pro version of terraform enterprise?
+Ans. No. Policies cannot be added to the Open Source. Policies also cannot be added to the Enterprise Pro Version. Sentinel policies can only be accessed through the Premium Version of Terraform Enterprise.
+
+15. What are the ways to lock terraform modules versions?
+Ans. Yes, there is a way to lock it. if terraform module registry is being used as a source, then the 'version' attribute can be used in the module in a configuration file of Terraform.
+
+16. Can terraform be used for on-prem infrastructure?
+Ans. erraform can be used for on-premises infrastructure. Whilst Terraform is known for being cloud-agnostic and supporting public clouds such as AWS, Azure, GCP, it can also be used for on-prem infrastructure including VMware vSphere and OpenStack.
+
+17. What is the terraform configuration for creating a single EC2 instance on aws?
+Ans. 
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+18. How would you recover from a failed apply in terraform?
+Ans. You need to restore the S3 bucket or make a new one and point your code at that. You then need to recreate the state you lost, that or delete every object you created via Terraform and start again.
+
+19. What is state file locking?
+Ans. State locking is for locking the state during a deployment such that no two terraform processes try to update the same state at the same time. That has nothing to do with protecting your resources from changes by other developers.
+
+20. What are the services you worked with and worte terraform files?
+Ans.
+
+21. Tell me the scenario where you came across provisoners?
+Ans. 
+What are the plugins and providers in terraform?
+How you deploy the terraform code, manually or with some automation tool?
+Can we merge two state files?
+Ans. Enter "yes" to copy and "no" to start with the existing state in the newly configured "stateB" backend.
+
+Enter a value: So you can decide whether to merge this states or use an new state. I will recommend to back up your states before doing this.
+What are the challenges faced while working with terraform?
+Best way to authenticate to the cloud providers through terraform?
+What if any error occur and want to rollback?
+What do you meant by Terraform Cloud?
+
+

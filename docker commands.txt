@@ -1,0 +1,98 @@
+apt-get update
+apt-get install -y docker.io
+which docker
+docker info
+systemctl status docker
+docker images
+docker run <imagename>
+docker run hello-world
+docker images
+docker ps
+docker ps -a
+docker pull ubuntu
+docker images
+docker ps
+docker ps -a
+docker run -itd ubuntu
+docker ps
+docker run -it ubuntu
+exit stop container
+ctlr+p+q--to safe exit from container
+
+
+
+
+
+cd /etc/yum.repos.d/
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+yum update -y
+
+
+
+
+
+
+Go to /etc/yum.repos.d/ directory. Open .repo file and manually edit mirrorlist from $releasever to 8-stream.
+For example : /etc/yum.repos.d/CentOS-Linux-BaseOS.repo
+1.open file in vi
+  sudo vi /etc/yum.repos.d/CentOS-Linux-BaseOS.repo
+
+2.comment mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=BaseOS&infra=$infra
+  #mirrorlist=http://......
+
+3.within vi, copy paste mirrorlist=http://...... line
+  yy and p
+
+4.uncomment and edit the copied line by replacing $releasever to 8-stream
+  mirrorlist=http://mirrorlist.centos.org/?release=8-stream&arch=$basearch&repo=BaseOS&infra=$infra
+
+5.save and exit vi
+  :wq
+
+
+
+
+docker pull ubuntu:20.10
+docker pull ubuntu:16.04
+docker images
+docker run -itd --name myububtu ubuntu:16.04
+docker stop container-id
+docker start container-id
+docker attach container-id
+docker exec -it mycont1 /bin/bash
+docker commit container-id doc-hub-accname/imagename:tag
+docker login
+docker push doc-hub-accname/imagename:tag
+docker tag doc-hub-acc/img:1.0 newname/img:1.0
+
+
+
+
+
+
+docker rmi imagename
+docker rm container-id
+docker run -it --name docvol -v data:/myvolume ubuntu
+df -h
+du -h filename or directory name
+docker volume ls
+docker volume inspect container-id
+docker inspect containerid | grep volume
+docker run -itd --name cont1 -v data:/myvolume ubuntu
+docker run -itd --name cont2 -v /tmp:/myvolume:z ubuntu
+docker images
+docker history imageid
+
+
+
+
+
+lsblk
+mkfs -t ext4 /dev/sdc
+mkdir /app
+mount /dev/sdc /app
+
+
+docker login -u vidusazureregistry viduazure.azurecr.io
+docker login -u acr-username server-login-name

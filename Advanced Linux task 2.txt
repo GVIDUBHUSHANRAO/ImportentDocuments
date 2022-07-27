@@ -1,0 +1,25 @@
+1. How to print multi line messages using echo command?
+Ans. # echo -e "line1\nline2\nline3\n....\linen"
+
+2. Find out paragraphs in a file?
+Ans.
+
+3. How to arrange any file's output in descending order?
+Ans. 1. For file containing alphabets - # cat filename | sort -r (or) # sort -r filename
+     2. For file containing numbers - # cat filename | sort -nr (or) # sort -nr filename
+
+4. How many duplicates are there in a file?
+Ans. 1. For file containing alphabets - # cat filename | sort | uniq -d | wc -l
+     2. For file containing numbers - # cat filename | sort -n | uniq -d | wc -l
+
+5. In which lines duplicates are there?
+Ans.  
+
+6. How to delete empty lines using sed command?
+Ans. # sed '/^$/d' filename
+
+7. In a file, suppose there is a line that contains both amar and pradeep keywords, only in that line we should    replace pradeep to amar.
+Ans. #  sed '/amar/ s/pradeep/amar/g' filename
+
+8. In a file, replace amar keywords in 2nd,3rd,... occurences in a line.(should not touch first occurence in    any line)
+Ans.  

@@ -1,0 +1,6 @@
+1.What are different storage services types in AWS?
+2.What is EBS(Elastic Block Storage)?
+3.What are different volume types provided by EBS?
+4.What is a snapshot?
+5.What is a image?
+6.Difference between snapshot and image? 

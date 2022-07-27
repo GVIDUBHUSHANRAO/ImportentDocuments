@@ -1,0 +1,124 @@
+Variables
+
+variable: if a key has multiple values then that is called as variable. we have different types.
+1) run time variable.
+#!/bin/bash
+echo "provide value for a"
+read a
+echo "provide value for b"
+read b
+expr $a + $b
+
+2) positional parameter
+#!/bin/bash
+a=$1
+b=$2
+expr $a + $b
+
+./script.sh positional1 positional2
+
+#!/bin/bash
+express $1 + $2 
+
+3. local variable
+#!/bin/bash
+a=5
+b=10
+expr $a + $b
+
+month=feb
+echo "this month is $month"
+
+4. Output Variables:
+
+how to runs commands with in shell script
+EX:
+#!/bin/bash
+
+mem=`free -m|grep Mem| awk '{print $7}'`
+echo "Available memory is $mem"
+
+
+Environment Variable:
+
+2types of variable
+
+1-user variable
+Only for particular user
+goto to respected user home directory and add your variable into .bash_profile
+
+2-Global variable
+goto /etc/profile file and add your variable
+
+System Variables:
+system variable means predefined variable.
+
+**if-else statement:
+*syntax:
+
+if [ condition ]
+then
+true statements
+else
+false statements
+fi
+
+
+**if..elif..else..fi statement:
+*syntax:
+
+if [ expression1 ]
+then
+   statement1
+   statement2
+   .
+   .
+elif [ expression2 ]
+then
+   statement3
+   statement4
+   .
+   .
+else
+   statement5
+
+*Example:
+
+#!/bin/bash
+
+os=`cat /etc/os-release|grep ^NAME|awk -F '"' '{print $2}'|awk '{print $1}'`
+if [ $os = Amazon ] || [ $os = Redhat ] || [ $os = Centos ]
+then
+echo My distribution is $os
+elif [ $os = Windows ]
+then
+echo My distribution is $os
+elif [ $os = ubuntu ]
+then
+echo My distribution is $os
+else
+echo My distribution is not $os
+fi
+
+
+*Tasks*
+
+1. if available memory is more than 1GB(1024MB) 
+2. Find out the available memory in % and if it is more than 40% then echo something
+3. In df -h / ,find out the available storage, convert into MB and if it is more than 1GB then echo something
+4. Same as before but in %, find out the available storage,convert it and if it is more than 1GB then echo something
+5. I have shell script, only root should be able to run it(use whoami command)
+6. /app , /app1 , /app2 
+6.1) write a shell script to take folder name as positional paramater
+6.2) if i give any other folder except /app , /app1 , /app2  it should say, please provide correct folder name.
+6.3) find out the latest files and remove remaining all files?
+6.4) i may have sub folders also it should dlete all old files not directories?
+7. 
+/app
+
+f1 f2 f3 f4 f5 folder1/f6
+
+
+
+
+

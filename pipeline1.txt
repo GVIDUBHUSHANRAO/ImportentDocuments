@@ -1,0 +1,40 @@
+pipeline{
+agent any
+stages {
+  stage('build') {
+    steps {
+      echo 'building .....'
+    }
+  }
+
+  stage('test') {
+    steps {
+      echo 'testing .....'
+    }
+  }
+
+  stage('deploy') {
+    steps {
+      echo 'deploying .....'
+    }
+  }
+
+}
+}
+
+1. How to provide access to a particular job to a user
+2. How to reset admin password
+3. How to restart your Jenkins from the console
+4. What is a slave/agent machine and how to add it
+5. How to make sure that our job should run in any available slave machine
+6. What are the types of jobs we are having
+7. How to take backups for our job
+8. What are the plugins we are having in Jenkins
+   git pipeline, sonar, nexus, ec-2, maven, mail plugin, thin backup, Jira, Slack, test complete
+   Junit, etc.....
+9. What is Jenkins home directory and how to change it
+10. What is the default port number for Jenkins and how to change it
+11. What is a pipeline and please write down your pipeline stages
+12. How to run multiple stages parallelly
+13. My job has different stages, I want a few stages is one agent and other stages in other agents
+14. Your job is failing how do you troubleshoot

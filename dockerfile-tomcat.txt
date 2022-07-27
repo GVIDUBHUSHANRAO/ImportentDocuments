@@ -1,0 +1,19 @@
+script.sh
+rm -rf Docker-file
+mkdir Docker-file
+cd Docker-file
+cp /var/lib/jenkins/workspace/package/target/addressbook.war .
+touch Dockerfile
+cat <<EOT>> Dockerfile
+FROM tomcat:8.5.69-jdk8
+RUN mv webapps webapps2
+RUN mv webapps.dist/ webapps
+ADD addressbook.war /usr/local/tomcat/webapps
+CMD "catalina.sh" "run"
+EXPOSE 8080
+EOT
+docker build -t vidusdocker/jenkins_deploy:$BUILD_NUMBER .
+docker run -itd --name jenkins_container_$BUILD_NUMBER -P vidusdocker/jenkins_deploy:$BUILD_NUMBER
+
+
+sudo setfacl --modify user:jenkins:rw /var/run/docker.sock

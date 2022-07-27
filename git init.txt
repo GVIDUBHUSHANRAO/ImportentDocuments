@@ -1,0 +1,14 @@
+  371  cd repousinginit
+  372  ls
+  373  ls -a
+  374  touch f1 f2 f3
+  375  git add .
+  376  git config --global user.name "GVIDUBHUSHANRAO"
+  377  git config --global user.email "ayirplnahsuhb@gmail.com"
+  378  git status
+  379  git remote -v
+  380  git remote add vidusample1 https://github.com/GVIDUBHUSHANRAO/repousinginit.git
+  381  git remote -v
+  382  git commit -m "creating repousinginit and files f1,f2,f3"
+  383  git status
+  384  git push vidusample1 master

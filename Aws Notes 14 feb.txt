@@ -1,0 +1,46 @@
+ Date : 14 Feb 2022
+
+
+ec2 service types.
+on demand (on rent, no commitment from AWS as well as customer)
+reserved (on Lease, we have to give commitment for some period of time. Lesser cost)
+spot (Very cheap ,but there is no commitment from AWS. When ever they have peak load in that data center they can take this server. This is just for basic purpose.)
+
+
+#############################################################
+go to ec2 dashboard then  >> Launch ec2 instancechoose 
+1) choose AMi > amazon machine image
+2) choose an instance type
+a. General purpose
+b. compute optimize.
+c. Memory optimized.
+d. Accelarated Computing.
+e Storage optimized.
+
+3. Configure instance details.
+Count, Network details, IAM role, Advance settings.
+
+4. add storage
+
+5. Add tags
+
+6. Security group.
+
+7. Review and launchs
+
+8. launch and choose the key pair.
+
+9. Storage
+
+########################################################
+--Location terminologies.
+1. Region.
+2. Availability zone.
+
+###############################################################
+--Storage types AWS.
+1 EBS (Elastic blocks storage) -- default storage which comes with EC2 instances.
+2 EFS (Elastic file system) --
+3 S3  (Simple storage service)
+
+

@@ -1,0 +1,81 @@
+1. I have a playbook with host group dev. Now I need to override without opening the file in command line
+Ans.
+---
+- hosts: "{{ variable_host | default('web') }}"
+  tasks:
+  - name: create user
+    user: name=testvar state=present
+  - name: install httpd
+    yum: name=httpd state=installed
+    tags: app
+  - name: start service
+    service: name=httpd state=started
+    tags: app
+
+
+# ansible-playbook playbook1.yaml --extra-vars "variable_host=database"
+
+2. How to call another inventory file dynamically to run my playbook( in /root/hosts)
+Ans. If the location given to -i in Ansible is a directory (or as so configured in ansible.cfg ), Ansible can use multiple inventory sources at the same time.
+
+# vi /etc/ansible/hosts
+[web]
+65.0.102.46
+
+[database]
+3.110.87.194
+
+[amazon]
+65.0.102.46
+3.110.87.194
+:wq!
+# vi /root/hosts
+[web]
+65.0.102.46
+:wq!
+# vi playbook1.yaml
+---
+- hosts: all
+  tasks:
+  - name: create user
+    user: name=test state=present
+:wq!
+# ansible-playbook playbook1.yaml -i /root/hosts
+
+-after that check server with public ip 65.0.102.46 by typing command
+# id test
+uid=1007(test) gid=1007(test) groups=1007(test)
+
+-As you can see we have given all(- hosts: all), if it considered /etc/ansible/hosts, the user test should be present in other server(3.110.87.194)
+
+
+3. Instead of running my tasks sequentially, how can I run them in parallel (hintstrategies)
+Ans.
+
+************if we want to run tasks in the below order,
+all tasks - 1st server
+all tasks - 2nd server
+all tasks - 3rd server
+
+---
+- hosts: amazon
+  serial: 1
+  tasks:
+  - name: create user
+    user: name=test11 state=present
+  - name: install httpd
+    yum: name=httpd state=installed
+    tags: app
+  - name: start service
+    service: name=httpd state=started
+    tags: app 
+
+***************
+
+
+4. How to ignore the warning popup message when running the ansible command
+Ans. Goto ansible.cfg file and add "interpreter_python=auto_silent" inside defaults like this,
+     
+#vi /etc/ansible/ansible.cfg
+[defaults]
+interpreter_python=auto_silent

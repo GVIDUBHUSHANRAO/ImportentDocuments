@@ -1,0 +1,261 @@
+create ec2 instance >>
+Create IAM role with (EC2,S3,IAM,Route53 full permissions) attach the role to ec2 instance
+Create route53 >>hosted domain>>private>>select zone and vpc of ec2>>create 
+
+aws --version
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -LO  https://github.com/kubernetes/kops/releases/download/1.15.0/kops-linux-amd64)
+chmod +x kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+aws s3 mb s3://vidubucket1.vidu.com(s3bucket+route53)
+vi /etc/profile
+ADD this export KOPS_STATE_STORE=s3://vidubucket1.vidu.com
+export KOPS_STATE_STORE=s3://vidubucket1.vidu.com
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+ssh-keygen
+cp -pr /usr/local/bin/kops /usr/local/sbin
+cp -pr /usr/local/bin/kubectl /usr/local/sbin
+yum install docker
+/usr/local/bin/kops create cluster --zones=ap-south-1a vidubucket1.vidu.com --dns-zone=vidu.com --dns private
+Copy suggentions to notepad open master configuration and change instance type to t2.medium
+/usr/local/bin/kops update cluster --name useast1.dev.amar.com --yes(run from suggestions)
+kops validate cluster---(wait for 10mins)
+kubectl get nodes
+
+
+
+    1  aws --version
+    2  curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -LO
+    3  curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -LO  https://github.com/kubernetes/kops/releases/download/1.15.0/kops-linux-amd64)
+    4  chmod +x kops-linux-amd64
+    5  sudo mv kops-linux-amd64 /usr/local/bin/kops
+    6  aws s3 mb s3://vidubucket1.vidu.com
+    7  vi /etc/profile
+    8  curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    9  chmod +x ./kubectl
+   10  sudo mv ./kubectl /usr/local/bin/kubectl
+   11  ssh-keygen
+   12  cp -pr /usr/local/bin/kops /usr/local/sbin
+   13  cp -pr /usr/local/bin/kubectl /usr/local/sbin
+   14  yum install docker
+   15  aws s3 mb s3://vidubucket2.vidu.com
+   16  /usr/local/bin/kops create cluster --zones=ap-south-1a vidubucket1.vidu.com --dns-zone=vidu.com --dns private
+   17  vi /etc/profile
+   18  /usr/local/bin/kops create cluster --zones=ap-south-1a vidubucket3.vidu.com --dns-zone=vidu.com --dns private
+   19  vi /etc/profile
+   20  export KOPS_STATE_STORE=s3://vidubucket3.vidu.com
+   21  /usr/local/bin/kops create cluster --zones=ap-south-1a vidubucket3.vidu.com --dns-zone=vidu.com --dns private
+   22  kops edit ig --name=vidubucket3.vidu.com nodes
+   23  kops edit ig --name=vidubucket3.vidu.com master-ap-south-1a
+   24  kops get cluster
+   25  kops edit cluster vidubucket3.vidu.com
+   26  /usr/local/bin/kops update cluster --name apsouth1.dev.vidu.com --yes
+   27  /usr/local/bin/kops update cluster --name vidubucket3.vidu.com --yes
+   28  kops validate cluster
+   29  kubectl get nodes --show-labels
+   30  kubectl create deployment httpd --image=httpd
+   31  kubectl get nodes
+   32  kubectl delete node ip-172-20-32-15.ap-south-1.compute.internal
+   33  kubectl get nodes
+   34  kops edit ig nodes
+   35  kops delete cluster vidubucket1.vidu.com --yes
+   36  history
+
+Suggestions:
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster vidubucket3.vidu.com
+ * edit your node instance group: kops edit ig --name=vidubucket3.vidu.com nodes
+ * edit your master instance group: kops edit ig --name=vidubucket3.vidu.com master-ap-south-1a
+
+Finally configure your cluster with: kops update cluster --name vidubucket3.vidu.com --yes
+
+
+
+Suggestions:
+ * validate cluster: kops validate cluster
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.vidubucket3.vidu.com
+ * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+ * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
+
+
+
+
+
+    1  yum update
+    2  aws --version
+    3  curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -LO  https://github.com/kubernetes/kops/releases/download/1.15.0/kops-linux-amd64)
+    4  chmod +x kops-linux-amd64
+    5  sudo mv kops-linux-amd64 /usr/local/bin/kops
+    6  vi /etc/profile
+    7  export KOPS_STATE_STORE=s3://vidubucket3.vidu.com
+    8  curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    9  chmod +x ./kubectl
+   10  sudo mv ./kubectl /usr/local/bin/kubectl
+   11  ssh-keygen
+   12  cp -pr /usr/local/bin/kops /usr/local/sbin
+   13  cp -pr /usr/local/bin/kubectl /usr/local/sbin
+   14  yum install docker
+   15  /usr/local/bin/kops create cluster --zones=ap-south-1a vidubucket3.vidu.com --dns-zone=vidu.com --dns private
+   16  kops edit ig --name=vidubucket3.vidu.com nodes
+   17  kops edit ig --name=vidubucket3.vidu.com master-ap-south-1a
+   18  kops get cluster
+   19  kops edit cluster vidubucket3.vidu.com
+   21  /usr/local/bin/kops update cluster --name vidubucket3.vidu.com --yes
+   22  kops validate cluster
+   23  kubectl get nodes --show-labels
+   24  kubectl get nodes
+   25  kops validate cluster vidubucket3.vidu.com
+   26  kubectl get deplotments
+   27  kubectl get deployments
+   28  kubectl create deployment vidu1 --image=httpd
+   29  kubectl get deployments
+   30  kubectl get pods
+   31  kubectl scale deployment vidu1 --replicas=3
+   32  kubectl get pods
+   33  kubectl get pods -o wide
+   34  kubectl expose deployment vidu1 --type=NodePort --port=80 --target-port=80
+   35* kubectl get pods -
+   36  kubectl get pods -o wide
+   37  kubectl expose deployment vidu1 --type=LoadBalancer --port=80 --target-port=80
+   38  kubectl create deployment vidu2
+   39  kubectl create deployment vidu2 --image=nginx
+   40  kubectl scale deployment vidu2 --replicas=3
+   41  kubectl expose deployment vidu2 --name=service_name --type=LoadBalancer --port=80 --target-port=80
+   42  kubectl get service
+   43  history
+   44  kops delete cluster vidubucket3.vidu.com --yes
+
+
+
+1. lsblk
+2. mkfs.ext4 /dev/xvdf
+3. mkdir /app
+4. mount /dev/xvdf /app
+5. yum install nfs-utils
+6. vi /etc/exports
+/app *(rw,sync)
+7. systemctl start nfs
+8. systemctl status nfs
+9. exportfs
+10. chmod 777 /app
+
+
+
+
+1. vi pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: "18.217.57.240"
+    path: "/kubedata"
+2. vi pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+3. kubectl apply -f pv.yaml
+4. kubectl apply -f pvc.yaml
+5. kubectl get pvc
+6. vi mydep1.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nginx-deployment2
+    labels:
+      app: nginx
+spec:
+   selector:
+      matchLabels:
+          app: nginx
+   template:
+      metadata:
+        labels:
+          app: nginx
+      spec:
+        containers:
+          - name: nginx
+            image: nginx:1.7.9
+            ports:
+              - containerPort: 80
+            volumeMounts:
+              - mountPath: /demo3
+                name: demo-volume
+        volumes:
+          - name: demo-volume
+            persistentVolumeClaim:
+              claimName: task-pv-claim
+7. kubectl apply -f mydep1.yaml
+8. kubectl get pods
+9. kubectl exec -it nginx-deployment2-7dcbfdbd68-6jpfj -- /bin/bash
+
+
+
+
+kubectl create configmap special-config --from-literal=special.how=very
+
+apiVersion: v1
+kind: Pod
+metadata:
+   name: dapi-test-pod
+spec:
+containers:
+- name: test-container
+image: k8s.gcr.io/busybox
+command: [ "/bin/sh", "-c", "env" ]
+env:
+# Define the environment variable
+- name: SPECIAL_LEVEL_KEY
+valueFrom:
+configMapKeyRef:
+# The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+name: special-config
+# Specify the key associated with the value
+key: special.how
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+name: envtest
+spec:
+replicas: 1
+template:
+metadata:
+labels:
+name: envtest
+spec:
+containers:
+- name: envtest
+image: gcr.io/<PROJECT_ID>/envtest
+ports:
+- containerPort: 3000
+env:
+- name: LANGUAGE
+value: "English"
+- name: API_KEY
+value: "123-456-789"
+
+https://medium.com/google-cloud/kubernetes-configmaps-and-secrets-68d061f7ab5b
+
+
+https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/
+
+https://github.com/busani9/kubernetes

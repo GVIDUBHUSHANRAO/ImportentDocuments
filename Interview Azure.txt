@@ -1,0 +1,99 @@
+1.ARM structure?
+Ans.
+{
+*schema
+*content version
+ parameters
+ variables
+ functions
+*resources
+ output
+}
+
+*Scope of ARM:(schema value will be different)
+1.Management Group level
+2.Subscription level
+3.Resource group level
+4.Tenant level
+
+*Modes:
+1.Incremental(default)-not touch any of the existing resources
+2.Complete- deletes existing resources which are not present in template
+
+2.Azure Dashbords
+Ans.Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can monitor resources and quickly launch tasks for day-to-day operations. Build custom dashboards based on projects, tasks, or user roles.
+
+3.Account Administrator roles
+Ans.
+a.Account Administrator-one per Azure Account
+b.Service Administrator-one per Azure Subscription
+c.Co-Administrator-200 per Subscription
+
+4.RBAC(Role Based Access Control) roles
+Ans.To manage who has the access to Azure resources.
+-we have plenty of RBAC roles but we see mainly these following major roles:
+ a.owner-full access to all resources and delegate access to others
+ b.contributer-create and manage all resources, create a new tenant to Azure Active Directory, and cannot grant access to others 
+ c.reader-can only view azure resources but cannot modify
+
+-Scope of RBAC
+ a.Management Group level
+ b.Subscription level
+ c.Resource Group level
+ d.Resource level
+
+5.AD(Active Directory) roles
+Ans.To manage access to Active Directory.
+-Some of the major roles are:
+ a.Global Adminstrator
+ b.User Administrator
+ c.Billing Administrator
+
+6.Azure Artifact
+Ans.Azure DevOps Services:
+Azure Artifacts enables developers to share their code efficiently and manage all their packages from one place. With Azure Artifacts, developers can publish packages to their feeds and share it within the same team, across organizations, and even publicly. Developers can also consume packages from different feeds and public registries such as NuGet.org or npmjs.com. Azure Artifacts supports multiple package types such as NuGet, npm, Python, Maven, and Universal Packages.
+
+7.Service Connection
+Ans.In Azure-Devops, if you want to deploy an app to an azure resource(like webapp) we need service connection for authentication from Azure-Devops to Azure Subcription.
+Azure Portal -> Azure AD -> Users -> +New Guest User -> give name, email address(Azure-Devops) -> click on "Invite" -> Navigate to that user -> click on "Asigned roles" -> +Add assignments -> to give full access select "Global administrator" -> click on "ADD" -> click on "Accept Invitation" in your email
+
+-Now we need to give access to our subscription to user:
+Navigate to "subcription" -> Navigate/click on "Access Control" -> click on "Add role assingments" -> choose role(lets say "owner") -> search for Guest user name -> after seeing user name select it -> click on "Save"
+
+-Now we need to create "Service principle" to have access to all resources 
+goto Azure-Devops -> select "Subcription"
+
+8.Github action
+Ans.GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.
+
+9.AD Connect sync:
+Ans.The Azure Active Directory Connect synchronization services (Azure AD Connect sync) is a main component of Azure AD Connect. It takes care of all the operations that are related to synchronize identity data between your on-premises environment and Azure AD. Azure AD Connect sync is the successor of DirSync, Azure AD Sync, and Forefront Identity Manager with the Azure Active Directory Connector configured.
+
+10.AD syncchronization
+Ans.
+Many organizations have a hybrid infrastructure encompassing both on-premises and cloud components. Synchronizing users’ identities between local and cloud directories lets users access resources with a single set of credentials.
+
+Synchronization is the process of
+
+creating an object based on certain conditions
+keeping the object updated
+removing the object when conditions are no longer met.
+On-premises provisioning involves provisioning from on-premises sources (like Active Directory) to Azure Active Directory (Azure AD).
+
+Use when
+You need to synchronize identity data from your on-premises Active Directory environments to Azure AD.
+
+11.Azure Monitoring-Alerts
+Ans.
+
+12.Storage Accounts:
+Ans.
+
+13.Service principle:
+Ans.
+*An Azure service principal is an identity created for use with applications, hosted services, and automated tools to access Azure resources. This access is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
+*There are two types of authentication available for service principals: 
+a.Password-based authentication, and 
+b.Certificate-based authentication.
+
+

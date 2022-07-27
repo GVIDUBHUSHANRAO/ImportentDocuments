@@ -1,0 +1,24 @@
+**Step1: create one ec2instance 
+**Step2: create one IAM role in that give permission like ec2full,cloud formation full access,vpc full access,administratorfull access I need to give
+**Step3: After that attach the role to EC2-instance
+
+**Step4: Installing kubectl and eksctl; Creating cluster
+ 
+1. curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
+2. openssl sha1 -sha256 kubectl
+3. chmod +x ./kubectl
+4. mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+5. kubectl version --short --client
+6. curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+7. sudo mv /tmp/eksctl /usr/local/bin
+8. export PATH=$PATH:/usr/local/bin/
+9. eksctl version
+10. eksctl create cluster --name vidu2 --region ap-south-1 --node-type t2.micro
+
+Wait for 25-30 min
+
+
+**Step5: In aws cloud formation, you can see the clusters and nodes created
+**Step6: In ec2dashboard you can see those nodes 
+**Step7: Deletion of cluster
+eksctl delete cluster --name=vidu2 --region=ap-south-1

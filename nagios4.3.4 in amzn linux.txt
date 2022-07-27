@@ -1,0 +1,39 @@
+ yum install build-essential apache2 php openssl perl make php-gd libgd-dev libapache2-mod-php libperl-dev libssl-dev daemon wget apache2-utils unzip
+    5  yum install gcc glibc glibc-common gd gd-devel make net-snmp openssl-devel xinetd unzip
+    6  adduser -m nagios
+    7  groupadd nagcmd
+    8  usermod -a -G nagcmd nagios
+    9  usermod -a -G nagcmd apache
+   10  mkdir ~/downloads
+   11  cd downloads
+   12  wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.4.tar.gz
+   13  wget https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
+   14  tar xzvf nagios-4.3.4.tar.gz
+   15  cd nagios-4.3.4/
+   16  ./configure --with-command-group=nagcmd
+   17  make all
+   18  make install
+   19  make install-init
+   20  make install-config
+   21  make install-commandmode
+   22  vim /usr/local/nagios/etc/objects/contacts.cfg
+   23  make install-webconf
+   24  htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+   25  service httpd restart
+   26  cd downloads/
+   27  cd /downloads/
+   28  cd /downloads
+   29  cd
+   30  ls
+   31  cd /downloads
+   32  cd downloads
+   33  tar xzvf nagios-plugins-2.2.1.tar.gz
+   34  cd nagios-plugins-2.2.1/
+   35   ./configure --with-nagios-user=nagios --with-nagios-group=nagios
+   36  Make
+   37  make
+   38  make install
+   39  chkconfig --add nagios
+   40  chkconfig nagios on
+   41   /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+   42  service nagios restart

@@ -1,0 +1,39 @@
+1.In last 2 days, how many files are modified?
+Ans. command - # find / -mtime -2 -type f
+
+2.In last 2 days, how many files are accessed?
+Ans. command - # find / -atime -2 -type f
+
+3.In last 2 days, how many files are created?
+Ans. 
+
+4.Find out files which are <10mb in size?
+Ans. command - # find / -size -10M
+
+5.Find out files which are >5mb and <10mb in size?
+Ans. command - # find / -size +5M -size -10M
+
+6.Find out files created/modified in between Jan 25th and 31st Jan?
+Ans. command - # find / -type f -newermt 2022-01-25 ! -newermt 2022-01-31
+
+7.Find out how many occurrences of a keyword?
+Ans. command - # grep -o keyword filename | wc -w(or)wc -l
+
+8.Find out line numbers of a keyword?
+Ans. command - # grep -n keyword filename
+
+9.In /app, i have file1 to file100. In some of the files i have amar keyword. Find out the list of files contains amar keyword ?
+Ans.command - # grep -l amar /app/* (or) grep -l amar /app/file*
+
+10.I have a file with 100 lines.please search amar keywords in between 10 to 30 lines?
+Ans. command - # cat filename | head -n 30 | tail -n 20 | grep keyword
+
+11.How many lines contains duplicate keyword. (EX: Amar should be there 2 times in one line )
+Ans.
+
+12.How to exclude first 2 lines?
+Ans. step-1: find the total no.of lines in that file/output_of_any_command using command wc.
+     step-2: use command - # output | tail -n (total no.of lines-2) 
+13.How to exclude last 2 lines?
+Ans. step-1: find the total no.of lines in that file/output_of_any_command using command wc.
+     step-2: use command - # output | head -n (total no.of lines-2)
