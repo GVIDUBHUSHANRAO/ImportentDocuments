@@ -1,11 +1,17 @@
 provider "aws" {
-    access_key = "AKIA3MPKOOSR77RAKU6H"
-    secret_key = "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"
     region = "ap-south-1"
 }
 terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.23.0"
+    }
+  # Before using s3 we have to add credentials to Environment Variables
+  # add AWS_ACCESS_KEY_ID
+  # add AWS_SECRET_ACCESS_KEY   
   backend "s3" {
-    bucket = "vidutf2"
+    bucket = "vidutf"
     key    = "terraform.tfstate"
     region = "ap-south-1"
   }
