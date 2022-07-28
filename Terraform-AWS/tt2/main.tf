@@ -6,7 +6,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "vidutf2"
-    key    = "vidukey3"
+    key    = "terraform.tfstate"
     region = "ap-south-1"
   }
 }
